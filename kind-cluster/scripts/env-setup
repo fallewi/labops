@@ -6,8 +6,8 @@ exec >> /proc/1/fd/1 2>&1
 #   example command to run this script  ./setup.sh 3 cluster1
 # ===============================================================================
 
-NUM_WORKERS=${2:-0}  # Default to 1 worker if not provided
-CLUSTER_NAME=${2:-cluster}
+NUM_WORKERS=${2:-3}  # Default to 1 worker if not provided
+CLUSTER_NAME=${1:-datascientest-cluster}
 
 # Check if k3d is installed, if not install it
 if ! command -v k3d &> /dev/null; then
