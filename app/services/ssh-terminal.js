@@ -5,8 +5,8 @@ class SSHTerminal {
         this.config = {
             host: config.host || 'remote-terminal',
             port: config.port || 22,
-            username: config.username || 'candidate',
-            password: config.password || 'password',
+            username: config.username || 'datascientest',
+            password: config.password || 'Datascientest2025',
             readyTimeout: 30000,
             keepaliveInterval: 10000
         };

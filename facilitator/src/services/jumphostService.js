@@ -227,7 +227,7 @@ async function evaluateExamOnJumphost(examId, questions) {
           const scriptPath = `/tmp/exam-assets/scripts/validation/${verificationScript}`;
           
           // Add KUBECONFIG environment variable to ensure all verifications use the correct kube config
-          const commandWithKubeconfig = `export KUBECONFIG=/home/candidate/.kube/kubeconfig && ${scriptPath}`;
+          const commandWithKubeconfig = `export KUBECONFIG=/home/datascientest/.kube/kubeconfig && ${scriptPath}`;
           
           logger.info(`Executing verification script: ${scriptPath} with KUBECONFIG set`);
           const result = await sshService.executeCommand(commandWithKubeconfig);

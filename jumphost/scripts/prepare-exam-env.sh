@@ -40,7 +40,7 @@ if ! [[ "$NUMBER_OF_NODES" =~ ^[0-9]+$ ]]; then
 fi
 
 # Setup kind cluster
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null candidate@k8s-api-server "env-setup $NUMBER_OF_NODES $CLUSTER_NAME"
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null datascientest@k8s-api-server "env-setup $NUMBER_OF_NODES $CLUSTER_NAME"
 
 #Pull assets from URL
 curl facilitator:3000/api/v1/exams/$EXAM_ID/assets -o assets.tar.gz
@@ -57,7 +57,7 @@ find /tmp/exam-assets -type f -exec chmod +x {} \;
 
 echo "Exam assets downloaded and prepared successfully" 
 
-export KUBECONFIG=/home/candidate/.kube/kubeconfig
+export KUBECONFIG=/home/datascientest/.kube/kubeconfig
 
 sleep 5
 

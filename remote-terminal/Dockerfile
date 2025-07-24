@@ -4,8 +4,8 @@ FROM alpine:latest
 # Install OpenSSH server
 RUN apk add --no-cache openssh openrc
 
-# Create candidate user and set password
-RUN adduser -D candidate && echo "candidate:password" | chpasswd
+# Create datascientest user and set password
+RUN adduser -D datascientest && echo "datascientest:password" | chpasswd
 
 # Configure SSH for password authentication
 RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config

@@ -21,22 +21,22 @@ RUN apt-get update && apt-get install -y \
     wget \
     xclip
 
-#create candidate user
-RUN useradd -m candidate
+#create datascientest user
+RUN useradd -m datascientest
 
 #set hostname as terminal
 RUN echo "export HOSTNAME=terminal" >> /headless/.bashrc
 #set terminal to bash
 RUN echo "export TERM=xterm" >> /headless/.bashrc
 
-#when shell open switch to candidate user
-RUN echo "cd /home/candidate && su candidate" >> /headless/.bashrc
+#when shell open switch to datascientest user
+RUN echo "cd /home/datascientest && su datascientest" >> /headless/.bashrc
 
 #disable asking for ssh host verification
-RUN mkdir -p /home/candidate/.ssh
-RUN touch /home/candidate/.ssh/config
-RUN echo "StrictHostKeyChecking no" >> /home/candidate/.ssh/config
-RUN echo "UserKnownHostsFile /dev/null" >> /home/candidate/.ssh/config
+RUN mkdir -p /home/datascientest/.ssh
+RUN touch /home/datascientest/.ssh/config
+RUN echo "StrictHostKeyChecking no" >> /home/datascientest/.ssh/config
+RUN echo "UserKnownHostsFile /dev/null" >> /home/datascientest/.ssh/config
 
 
 # Copy startup script

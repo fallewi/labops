@@ -59,16 +59,16 @@ RUN sed -i 's/#UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
 # Completely remove password requirement
 RUN echo "root::0:0:root:/root:/bin/bash" > /etc/passwd
 
-# Create a new user 'candidate' with Docker permissions
-RUN useradd -m candidate
+# Create a new user 'datascientest' with Docker permissions
+RUN useradd -m datascientest
 
-#disable password login for candidate user
-RUN echo "candidate::0:0:candidate:/home/candidate:/bin/bash" > /etc/passwd
-RUN echo "candidate:x:1000:1000:candidate:/home/candidate:/bin/bash" >> /etc/passwd
+#disable password login for datascientest user
+RUN echo "datascientest::0:0:datascientest:/home/datascientest:/bin/bash" > /etc/passwd
+RUN echo "datascientest:x:1000:1000:datascientest:/home/datascientest:/bin/bash" >> /etc/passwd
 
 # Set up Minikube cluster on startup
-RUN mkdir -p /home/candidate/.kube /home/candidate/.minikube
-RUN chown -R candidate: /home/candidate/.kube /home/candidate/.minikube
+RUN mkdir -p /home/datascientest/.kube /home/datascientest/.minikube
+RUN chown -R datascientest: /home/datascientest/.kube /home/datascientest/.minikube
 
 # Copy exam environment scripts
 COPY scripts/prepare-exam-env.sh /usr/local/bin/prepare-exam-env
@@ -83,16 +83,16 @@ RUN mkdir -p /tmp/exam-env
 # Expose SSH port
 EXPOSE 22
 
-RUN echo "export TERM=xterm" >> /home/candidate/.bashrc
-RUN echo "export KUBECONFIG=/home/candidate/.kube/kubeconfig" >> /home/candidate/.bashrc
-RUN echo "PS1='\[\e[32m\]\u@\h:\w\$ \[\e[0m\]'" >> /home/candidate/.bashrc
+RUN echo "export TERM=xterm" >> /home/datascientest/.bashrc
+RUN echo "export KUBECONFIG=/home/datascientest/.kube/kubeconfig" >> /home/datascientest/.bashrc
+RUN echo "PS1='\[\e[32m\]\u@\h:\w\$ \[\e[0m\]'" >> /home/datascientest/.bashrc
 
 #set kubectl autocompletion
-RUN echo "source /usr/share/bash-completion/bash_completion" >> /home/candidate/.bashrc && \
-    echo "source <(kubectl completion bash)" >> /home/candidate/.bashrc && \
-    echo "alias k=kubectl" >> /home/candidate/.bashrc && \
-    echo "complete -F __start_kubectl k" >> /home/candidate/.bashrc && \
-    echo "source <(helm completion bash)" >> /home/candidate/.bashrc
+RUN echo "source /usr/share/bash-completion/bash_completion" >> /home/datascientest/.bashrc && \
+    echo "source <(kubectl completion bash)" >> /home/datascientest/.bashrc && \
+    echo "alias k=kubectl" >> /home/datascientest/.bashrc && \
+    echo "complete -F __start_kubectl k" >> /home/datascientest/.bashrc && \
+    echo "source <(helm completion bash)" >> /home/datascientest/.bashrc
 
 #start ssh service
 RUN useradd -r -s /usr/sbin/nologin sshd

@@ -13,5 +13,5 @@ if command -v helm &> /dev/null; then
 fi
 
 echo "Setup complete for Question 14: Environment ready for installing Helm and deploying Bitnami Nginx"
-echo "Note: The candidate should add the Bitnami repo if not already present: helm repo add bitnami https://charts.bitnami.com/bitnami"
+echo "Note: The Datascientest exam candidate should add the Bitnami repo if not already present: helm repo add bitnami https://charts.bitnami.com/bitnami"
 exit 0 

@@ -14,13 +14,13 @@ const PORT = process.env.PORT || 3000;
 // VNC service configuration from environment variables
 const VNC_SERVICE_HOST = process.env.VNC_SERVICE_HOST || 'remote-desktop-service';
 const VNC_SERVICE_PORT = process.env.VNC_SERVICE_PORT || 6901;
-const VNC_PASSWORD = process.env.VNC_PASSWORD || 'bakku-the-wizard'; // Default password
+const VNC_PASSWORD = process.env.VNC_PASSWORD || 'Datascientest2025'; // Default password
 
 // SSH service configuration
 const SSH_HOST = process.env.SSH_HOST || 'remote-terminal'; // Use remote-terminal service
 const SSH_PORT = process.env.SSH_PORT || 22;
-const SSH_USER = process.env.SSH_USER || 'candidate';
-const SSH_PASSWORD = process.env.SSH_PASSWORD || 'password';
+const SSH_USER = process.env.SSH_USER || 'datascientest';
+const SSH_PASSWORD = process.env.SSH_PASSWORD || 'Datascientest2025';
 
 const app = express();
 const server = http.createServer(app);

@@ -43,7 +43,7 @@ services:
       - SSH_HOST=remote-terminal
       - SSH_PORT=22
       - SSH_USER=datascientest
-      - SSH_PASSWORD=password
+      - SSH_PASSWORD=Datascientest2025
     deploy:
       resources:
         limits:
