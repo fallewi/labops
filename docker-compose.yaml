@@ -1,7 +1,7 @@
 services:
   # VNC Server (Ubuntu)
   remote-desktop:
-    image: fallewi/labops-dst-remote-desktop:latest
+    image: fallewi/desktop:latest
     build:
       context: ./remote-desktop
     hostname: terminal
@@ -91,7 +91,7 @@ services:
 
   # Jump Host (datascientest-machine)
   jumphost:
-    image: fallewi/labops-dst-jumphost:latest
+    image: fallewi/jumphost:latest
     build:
       context: ./jumphost
     hostname: datascientest-machine
@@ -115,10 +115,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-      
+
   # Remote Terminal Service
   remote-terminal:
-    image: fallewi/labops-dst-remote-terminal:latest
+    image: fallewi/terminal:latest
     build:
       context: ./remote-terminal
     hostname: remote-terminal
@@ -139,17 +139,17 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-      
+
   # KIND Kubernetes Cluster
   k8s-api-server:  # Service name that will be used for DNS resolution
-    image: fallewi/labops-datascientest-cluster:latest
+    image: fallewi/cluster:latest
     build:
       context: ./kind-cluster
     container_name: kind-cluster
     hostname: k8s-api-server
     privileged: true  # Required for running containers inside KIND
     expose:
-      - "6443:6443" 
+      - "6443:6443"
       - "22"
     volumes:
       - kube-config:/home/datascientest/.kube  # Shared volume for Kubernetes config
