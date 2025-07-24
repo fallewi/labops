@@ -31,7 +31,7 @@ services:
 
   # Web Application (not directly exposed to users)
   webapp:
-    image: fallewi/labops-dst-webapp:latest
+    image: fallewi/labops-webapp:latest
     build:
       context: ./app
     expose:
@@ -142,7 +142,7 @@ services:
       
   # KIND Kubernetes Cluster
   k8s-api-server:  # Service name that will be used for DNS resolution
-    image: fallewi/labops-dst-cluster:latest
+    image: fallewi/labops-datascientest-cluster:latest
     build:
       context: ./kind-cluster
     container_name: kind-cluster
