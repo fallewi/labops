@@ -69,7 +69,7 @@ SSH access is provided through the jumphost service:
 
 - **Hostname**: datascientest-machine
 - **Username**: datascientest
-- **Password**: Datascientest2025 (configured in compose.yaml)
+- **Password**: password (configured in compose.yaml)
 
 The SSH service is not directly exposed outside the container network and is accessed through the webapp.
 
@@ -86,8 +86,8 @@ remote-desktop:
     - "5901"  # VNC port (internal only)
     - "6901"  # Web VNC port (internal only)
   environment:
-    - VNC_PW=Datascientest2025
-    - VNC_PASSWORD=Datascientest2025
+    - VNC_PW=password
+    - VNC_PASSWORD=password
     - VNC_VIEW_ONLY=false
     - VNC_RESOLUTION=1280x800
 ```

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Log startup
-echo "Starting CKAD VNC service at $(date)"
+echo "Starting Datascientest LabOps VNC service at $(date)"
 
 echo "echo 'Use Ctrl + Shift + C for copying and Ctrl + Shift + V for pasting'" >> /home/datascientest/.bashrc
 

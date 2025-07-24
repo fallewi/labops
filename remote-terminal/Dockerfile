@@ -5,7 +5,7 @@ FROM alpine:latest
 RUN apk add --no-cache openssh openrc
 
 # Create datascientest user and set password
-RUN adduser -D datascientest && echo "datascientest:Datascientest2025" | chpasswd
+RUN adduser -D datascientest && echo "datascientest:password" | chpasswd
 
 # Configure SSH for password authentication
 RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
