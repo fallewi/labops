@@ -264,12 +264,14 @@ else
 fi
 
 # Vérifier l’image utilisée
+```shell
 IMAGE=$(kubectl get deployment nginx-deployment -n dev -o jsonpath="{.spec.template.spec.containers[0].image}")
 if [[ "$IMAGE" == "nginx:latest" ]]; then
     echo "✅ Image correcte : $IMAGE"
 else
     echo "❌ Image différente : $IMAGE"
 fi
+```
 
 # Vérifier que les pods sont tous Running
 PODS_RUNNING=$(kubectl get pods -n dev -l app=nginx -o json | jq '.items | map(select(.status.phase=="Running")) | length')
